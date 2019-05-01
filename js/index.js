@@ -65,7 +65,7 @@ logo.setAttribute('src', siteContent["nav"]["img-src"]);
  * insert into cta->h1. 
  */
 const ctaH1 = document.querySelector('.cta-text h1');
-const headerText = 'DOM IS AWESOME';
+const headerText = siteContent["cta"]["h1"];
 ctaH1.textContent = headerText;
 const ctaVerticalCenter = document.querySelector('.cta-text');
 
