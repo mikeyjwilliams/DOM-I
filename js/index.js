@@ -93,20 +93,22 @@ ctaImg.setAttribute('src', siteContent["cta"]["img-src"]);
  * h4 for feature and about sections &
  * h4 for services, product, and vision. 
  */
-const topContent = document.querySelectorAll('.text-content h4');
-const topInfo = Array.from(topContent);
-for(let i = 0; i < topInfo.length; i++) {
-  topInfo[i].textContent = siteContent["main-content"]["features-h4"];
-  topInfo[i].textContent = siteContent["main-content"]["about-h4"];
-  topInfo[i].textContent = siteContent["main-content"]["product-h4"];
-  topInfo[i].textContent = siteContent["main-content"]["services-h4"];
-  topInfo[i].textContent = siteContent["main-content"]["vision-h4"];
-}
+const mainH4 = document.querySelectorAll('.text-content h4');
+
+mainH4[0].textContent = siteContent["main-content"]["features-h4"];
+mainH4[1].textContent = siteContent["main-content"]["about-h4"];
+mainH4[2].textContent = siteContent["main-content"]["product-h4"];
+mainH4[3].textContent = siteContent["main-content"]["services-h4"];
+mainH4[4].textContent = siteContent["main-content"]["vision-h4"];
+
 
 /**
  * add content too p's in '.text-content p's
  * for features, about, product, services, & vision.
  */
-const contentNl = document.querySelectorAll('.text-content p');
-
-console.log(contentNl);
+const mainPars = document.querySelectorAll('.text-content p');
+mainPars[0].textContent = siteContent["main-content"]["features-content"];
+mainPars[1].textContent = siteContent["main-content"]["about-content"];
+mainPars[2].textContent = siteContent["main-content"]["product-content"];
+mainPars[3].textContent = siteContent["main-content"]["services-content"];
+mainPars[4].textContent = siteContent["main-content"]["vision-content"];
