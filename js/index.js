@@ -96,5 +96,11 @@ ctaImg.setAttribute('src', siteContent["cta"]["img-src"]);
 const topContent = document.querySelectorAll('.main-content .text-content h4');
 const topInfo = Array.from(topContent);
 console.log(topInfo);
-topInfo[0].textContent = siteContent["main-content"]["features-h4"];
-topInfo[1].textContent = siteContent["main-content"]["about-h4"];
+for(let i = 0; i < topInfo.length; i++) {
+  topInfo[i].textContent = siteContent["main-content"]["features-h4"];
+  topInfo[i].textContent = siteContent["main-content"]["about-h4"];
+  topInfo[i].textContent = siteContent["main-content"]["product-h4"];
+  topInfo[i].textContent = siteContent["main-content"]["services-h4"];
+  topInfo[i].textContent = siteContent["main-content"]["vision-h4"];
+}
+
