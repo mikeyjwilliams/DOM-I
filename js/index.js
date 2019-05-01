@@ -87,3 +87,14 @@ console.log(ctaButton);
  */
 const ctaImg = document.querySelector('#cta-img');
 ctaImg.setAttribute('src', siteContent["cta"]["img-src"]);
+
+/**
+ * h4's for .main-content
+ * h4 for feature and about sections &
+ * h4 for services, product, and vision. 
+ */
+const topContent = document.querySelectorAll('.main-content .text-content h4');
+const topInfo = Array.from(topContent);
+console.log(topInfo);
+topInfo[0].textContent = siteContent["main-content"]["features-h4"];
+topInfo[1].textContent = siteContent["main-content"]["about-h4"];
