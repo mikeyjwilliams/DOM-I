@@ -126,3 +126,7 @@ middleImg.src = siteContent["main-content"]["middle-img-src"];
  * contactHeader and contactInfo.
  * grab by .contact h4 and .contact p
  */
+
+const contactHeader = document.querySelector('.contact h4');
+contactHeader.textContent = siteContent["contact"]["contact-h4"];
+console.log(contactHeader);
