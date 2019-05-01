@@ -37,10 +37,6 @@ const siteContent = {
   },
 };
 
-// Example: Update the img src for the logo
-let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"]);
-
 /**
  *  Loop through the navigation items and display them.
  *  nodeList => navigationNl grabs 'nav a'
@@ -51,3 +47,13 @@ const navigationArr = Array.from(navigationNl);
 for (let i = 0; i < navigationArr.length; i++) {
   navigationArr[i].textContent = siteContent["nav"]["nav-item-" + i];
 }
+
+/**
+ *  Logo gets element 'logo-img' by id.
+ *  setsAttribute src to display img.
+ *  sets alt text with alt attribute.
+ */
+// Example: Update the img src for the logo
+let logo = document.getElementById("logo-img");
+logo.setAttribute('src', siteContent["nav"]["img-src"]);
+logo.setAttribute('alt', 'Great Idea! Company logo.');
