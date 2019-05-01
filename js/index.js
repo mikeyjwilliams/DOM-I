@@ -68,4 +68,3 @@ const ctaH1 = document.querySelector('.cta-text h1');
 const headerText = 'DOM IS AWESOME';
 ctaH1.textContent = headerText;
 const ctaVerticalCenter = document.querySelector('.cta-text');
-console.log(ctaH1);
