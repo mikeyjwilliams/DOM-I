@@ -70,6 +70,17 @@ ctaH1.textContent = headerText;
 const ctaVerticalCenter = document.querySelector('.cta-text');
 
 /**
+ * button text => 'siteContent[btn][button]'
+ * document object through => '.cta-text button'
+ * pass the text content in.
+ */
+const ctaButton = document.querySelector('.cta-text button');
+ctaButton.textContent = siteContent["cta"]["button"];
+console.log(ctaButton);
+
+
+
+/**
  * img of a code snippet.
  * #cta-img => ctaImg selects document.
  * set attribute img siteContent object.
