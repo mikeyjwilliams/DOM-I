@@ -134,3 +134,12 @@ const contactInfo = document.querySelectorAll('.contact p');
 contactInfo[0].textContent = siteContent["contact"]["address"];
 contactInfo[1].textContent = siteContent["contact"]["phone"];
 contactInfo[2].textContent = siteContent["contact"]["email"];
+
+/**
+ * footer info
+ * footerInfo => footer p
+ * displays data
+ */
+
+const footerInfo = document.querySelector('footer p');
+footerInfo.textContent = siteContent["footer"]["copyright"];
