@@ -56,3 +56,16 @@ for (let i = 0; i < navigationArr.length; i++) {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"]);
+
+/** 
+ * Cta h1 text => 'DOM IS AWESOME'
+ * grab h1 in CTA.
+ * create Text.
+ * create <br>;
+ * insert into cta->h1. 
+ */
+const ctaH1 = document.querySelector('.cta-text h1');
+const headerText = 'DOM IS AWESOME';
+ctaH1.textContent = headerText;
+const ctaVerticalCenter = document.querySelector('.cta-text');
+console.log(ctaH1);
