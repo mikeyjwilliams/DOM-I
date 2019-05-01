@@ -41,8 +41,13 @@ const siteContent = {
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"]);
 
-let navigationNl = document.querySelectorAll('nav a');
-navigationArr = Array.from(navigationNl);
+/**
+ *  Loop through the navigation items and display them.
+ *  nodeList => navigationNl grabs 'nav a'
+ *  navigationArr => array from nodeList iterates them.
+ */
+const navigationNl = document.querySelectorAll('nav a');
+const navigationArr = Array.from(navigationNl);
 for (let i = 0; i < navigationArr.length; i++) {
   navigationArr[i].textContent = siteContent["nav"]["nav-item-" + i];
 }
