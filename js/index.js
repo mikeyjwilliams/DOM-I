@@ -76,7 +76,7 @@ const ctaVerticalCenter = document.querySelector('.cta-text');
  */
 const ctaButton = document.querySelector('.cta-text button');
 ctaButton.textContent = siteContent["cta"]["button"];
-console.log(ctaButton);
+
 
 
 
@@ -129,4 +129,3 @@ middleImg.src = siteContent["main-content"]["middle-img-src"];
 
 const contactHeader = document.querySelector('.contact h4');
 contactHeader.textContent = siteContent["contact"]["contact-h4"];
-console.log(contactHeader);
