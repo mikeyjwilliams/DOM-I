@@ -95,7 +95,6 @@ ctaImg.setAttribute('src', siteContent["cta"]["img-src"]);
  */
 const topContent = document.querySelectorAll('.text-content h4');
 const topInfo = Array.from(topContent);
-console.log(topInfo);
 for(let i = 0; i < topInfo.length; i++) {
   topInfo[i].textContent = siteContent["main-content"]["features-h4"];
   topInfo[i].textContent = siteContent["main-content"]["about-h4"];
@@ -104,3 +103,10 @@ for(let i = 0; i < topInfo.length; i++) {
   topInfo[i].textContent = siteContent["main-content"]["vision-h4"];
 }
 
+/**
+ * add content too p's in '.text-content p's
+ * for features, about, product, services, & vision.
+ */
+const contentNl = document.querySelectorAll('.text-content p');
+
+console.log(contentNl);
