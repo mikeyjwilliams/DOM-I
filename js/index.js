@@ -38,6 +38,34 @@ const siteContent = {
 };
 
 /**
+ * function findSpacesArrayWord()
+ * finds spaces between words marks them in seen array.
+ * then splices them out to move on to the next one.
+ * since only thre words...slice from beginning to first space.join word
+ * slice to next seen[space] then join letters.
+ * slice till end and join letters.
+ * return array of words.
+ * @param array
+ * @return words
+ */
+const findSpacesArrayWord = function (array) {
+  const seen = [];
+  let words = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array.includes(' ')) {
+      seen.push(array.indexOf(' '));
+      array.splice(seen[i], 1);
+    }
+  }
+  const firstWord = array.slice(0, seen[0]).join('');
+  const secondWord = array.slice(seen[0], seen[1]).join('');
+  const thirdWord = array.slice(seen[1]).join('');
+  words.push(firstWord, secondWord, thirdWord);
+
+  return words;
+}
+
+/**
  *  Loop through the navigation items and display them.
  *  nodeList => navigationNl grabs 'nav a'
  *  navigationArr => array from nodeList iterates them.
@@ -67,36 +95,14 @@ logo.setAttribute('src', siteContent["nav"]["img-src"]);
 const ctaH1 = document.querySelector('.cta-text h1');
 const headerTextArr = siteContent["cta"]["h1"];
 let ctaText = Array.from(headerTextArr);
-/**
- * function findSpacesArrayWord()
- * finds spaces between words marks them in seen array.
- * then splices them out to move on to the next one.
- * since only thre words...slice from beginning to first space.join word
- * slice to next seen[space] then join letters.
- * slice till end and join letters.
- * return array of words.
- * @param array
- * @return words
- */
-const findSpacesArrayWord = function (array) {
-  const seen = [];
-  let words = [];
-  for (let i = 0; i < array.length; i++) {
-    if (array.includes(' ')) {
-      seen.push(array.indexOf(' '));
-      array.splice(seen[i], 1);
-    }
-  }
-  const firstWord = array.slice(0, seen[0]).join('');
-  const secondWord = array.slice(seen[0], seen[1]).join('');
-  const thirdWord = array.slice(seen[1]).join('');
-  words.push(firstWord, secondWord, thirdWord);
 
-  return words;
-}
 
 const domIsAwesome = findSpacesArrayWord(ctaText);
-
+const br = document.createElement('br');
+ctaH1.textContent = domIsAwesome[0];
+ctaH1.appendChild(br);
+ctaH1.textContent = domIsAwesome[1];
+ctaH1.appendChild(br);
 //ctaH1.te
 
 /**
