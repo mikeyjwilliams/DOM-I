@@ -69,7 +69,14 @@ const headerTextArr = siteContent["cta"]["h1"];
 let ctaText = Array.from(headerTextArr);
 /**
  * function findSpacesArrayWord()
- * checks
+ * finds spaces between words marks them in seen array.
+ * then splices them out to move on to the next one.
+ * since only thre words...slice from beginning to first space.join word
+ * slice to next seen[space] then join letters.
+ * slice till end and join letters.
+ * return array of words.
+ * @param array
+ * @return words
  */
 const findSpacesArrayWord = function (array) {
   const seen = [];
@@ -90,6 +97,7 @@ const findSpacesArrayWord = function (array) {
 
 const domIsAwesome = findSpacesArrayWord(ctaText);
 
+//ctaH1.te
 
 /**
  * button text => 'siteContent[btn][button]'
