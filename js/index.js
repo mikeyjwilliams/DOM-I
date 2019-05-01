@@ -68,3 +68,11 @@ const ctaH1 = document.querySelector('.cta-text h1');
 const headerText = 'DOM IS AWESOME';
 ctaH1.textContent = headerText;
 const ctaVerticalCenter = document.querySelector('.cta-text');
+
+/**
+ * img of a code snippet.
+ * #cta-img => ctaImg selects document.
+ * set attribute img siteContent object.
+ */
+const ctaImg = document.querySelector('#cta-img');
+ctaImg.setAttribute('src', siteContent["cta"]["img-src"]);
