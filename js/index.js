@@ -56,4 +56,3 @@ for (let i = 0; i < navigationArr.length; i++) {
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"]);
-logo.setAttribute('alt', 'Great Idea! Company logo.');
