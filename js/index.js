@@ -93,7 +93,7 @@ ctaImg.setAttribute('src', siteContent["cta"]["img-src"]);
  * h4 for feature and about sections &
  * h4 for services, product, and vision. 
  */
-const topContent = document.querySelectorAll('.main-content .text-content h4');
+const topContent = document.querySelectorAll('.text-content h4');
 const topInfo = Array.from(topContent);
 console.log(topInfo);
 for(let i = 0; i < topInfo.length; i++) {
