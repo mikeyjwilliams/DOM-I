@@ -119,3 +119,10 @@ mainPars[4].textContent = siteContent["main-content"]["vision-content"];
  */
 const middleImg = document.querySelector('#middle-img');
 middleImg.src = siteContent["main-content"]["middle-img-src"];
+
+/**
+ * Contact info
+ * split between
+ * contactHeader and contactInfo.
+ * grab by .contact h4 and .contact p
+ */
