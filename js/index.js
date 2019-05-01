@@ -101,7 +101,6 @@ mainH4[2].textContent = siteContent["main-content"]["product-h4"];
 mainH4[3].textContent = siteContent["main-content"]["services-h4"];
 mainH4[4].textContent = siteContent["main-content"]["vision-h4"];
 
-
 /**
  * add content too p's in '.text-content p's
  * for features, about, product, services, & vision.
@@ -112,3 +111,11 @@ mainPars[1].textContent = siteContent["main-content"]["about-content"];
 mainPars[2].textContent = siteContent["main-content"]["product-content"];
 mainPars[3].textContent = siteContent["main-content"]["services-content"];
 mainPars[4].textContent = siteContent["main-content"]["vision-content"];
+
+/**
+ * image between top and bottom content.
+ * attribute src name.
+ * grab by id='middle-img'
+ */
+const middleImg = document.querySelector('#middle-img');
+middleImg.src = siteContent["main-content"]["middle-img-src"];
