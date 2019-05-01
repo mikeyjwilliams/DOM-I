@@ -65,9 +65,31 @@ logo.setAttribute('src', siteContent["nav"]["img-src"]);
  * insert into cta->h1. 
  */
 const ctaH1 = document.querySelector('.cta-text h1');
-const headerText = siteContent["cta"]["h1"];
-ctaH1.textContent = headerText;
-const ctaVerticalCenter = document.querySelector('.cta-text');
+const headerTextArr = siteContent["cta"]["h1"];
+let ctaText = Array.from(headerTextArr);
+/**
+ * function findSpacesArrayWord()
+ * checks
+ */
+const findSpacesArrayWord = function (array) {
+  const seen = [];
+  let words = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array.includes(' ')) {
+      seen.push(array.indexOf(' '));
+      array.splice(seen[i], 1);
+    }
+  }
+  const firstWord = array.slice(0, seen[0]).join('');
+  const secondWord = array.slice(seen[0], seen[1]).join('');
+  const thirdWord = array.slice(seen[1]).join('');
+  words.push(firstWord, secondWord, thirdWord);
+
+  return words;
+}
+
+const domIsAwesome = findSpacesArrayWord(ctaText);
+
 
 /**
  * button text => 'siteContent[btn][button]'
