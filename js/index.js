@@ -220,11 +220,27 @@ function addressBreak(streetBreak) {
   }
   return words;
 }
+/**
+ * function to break [street address] up into chunks.
+ * 1. select placing.
+ * 2. create span element 
+ * 3. insert 'beforend' text.
+ * 4. append to the array[0] place the span with text.
+ * 5. create break and append it below textNode.
+ * 6. span attach to break and insertText 'afterend' address[1].
+ */
 const address = addressBreak(contactAddress);
 
-contactInfo[0].innerHTML = address[0] + '<br>' + address[1];
+const addressPlace = document.querySelectorAll('.contact p');
+const spanEl1 = document.createElement('span');
+spanEl1.insertAdjacentText('beforeend', address[0]);
+addressPlace[0].append(spanEl1);
 
+const br = document.createElement('br');
+spanEl1.append(br);
 
+const spanEl2 = document.createElement('span');
+br.insertAdjacentText('afterend', address[1]);
 
 contactInfo[1].textContent = siteContent["contact"]["phone"];
 contactInfo[2].textContent = siteContent["contact"]["email"];
