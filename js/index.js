@@ -77,12 +77,19 @@ for (let i = 0; i < navigationArr.length; i++) {
 }
 
 /**
- * 3. appendChild to nav bar.
+ * 3. a appendChild to nav bar.
  */
 const contactNav = document.createElement('a');
 contactNav.textContent = 'Contact';
-const navBar = document.querySelector('nav');
-navBar.appendChild(contactNav);
+const navAddContact = document.querySelector('nav');
+navAddContact.appendChild(contactNav);
+/**
+ * 3. b prepend to nav bar
+ */
+const homeNav = document.createElement('a');
+homeNav.textContent = 'Home';
+const navAddHome = document.querySelector('nav');
+navAddHome.prepend(homeNav);
 
 
 
