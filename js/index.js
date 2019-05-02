@@ -103,6 +103,20 @@ navTextColorArr.forEach((nav, i) => {
 });
 
 /**
+ *  STRETCH alter nav font size.
+ */
+const navBarStyles = document.querySelector('nav');
+navBarStyles.style.width = '80%';
+const logoMarginStyle = document.querySelector('.logo');
+logoMarginStyle.style.margin = '10px 0 0 15px';
+
+const navStyles = document.querySelectorAll('a');
+navStyles.forEach((nav, i) => {
+  navStyles[i].style.fontSize = '1.6rem';
+  navStyles[i].style.justifyContent = 'space-between';
+});
+
+/**
  *  Logo gets element 'logo-img' by id.
  *  setsAttribute src to display img.
  *  sets alt text with alt attribute.
@@ -191,7 +205,27 @@ const contactHeader = document.querySelector('.contact h4');
 contactHeader.textContent = siteContent["contact"]["contact-h4"];
 
 const contactInfo = document.querySelectorAll('.contact p');
-contactInfo[0].textContent = siteContent["contact"]["address"];
+const contactAddress = siteContent["contact"]["address"];
+
+function addressBreak(streetBreak) {
+  let firstHalf;
+  let secondHalf;
+  let words = [];
+  if (streetBreak.includes('Somewhere')) {
+    const i = streetBreak.indexOf('Somewhere');
+    firstHalf = streetBreak.slice(0, i);
+    secondHalf = streetBreak.slice(i);
+    words.push(firstHalf);
+    words.push(secondHalf);
+  }
+  return words;
+}
+const address = addressBreak(contactAddress);
+
+contactInfo[0].innerHTML = address[0] + '<br>' + address[1];
+
+
+
 contactInfo[1].textContent = siteContent["contact"]["phone"];
 contactInfo[2].textContent = siteContent["contact"]["email"];
 
