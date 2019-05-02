@@ -206,7 +206,11 @@ contactHeader.textContent = siteContent["contact"]["contact-h4"];
 
 const contactInfo = document.querySelectorAll('.contact p');
 const contactAddress = siteContent["contact"]["address"];
-
+/**
+ * function addressBreak
+ * break address into array of words.
+ * @param {*} streetBreak 
+ */
 function addressBreak(streetBreak) {
   let firstHalf;
   let secondHalf;
@@ -241,7 +245,9 @@ spanEl1.append(br);
 
 const spanEl2 = document.createElement('span');
 br.insertAdjacentText('afterend', address[1]);
-
+/**
+ * phone and email for contact
+ */
 contactInfo[1].textContent = siteContent["contact"]["phone"];
 contactInfo[2].textContent = siteContent["contact"]["email"];
 
