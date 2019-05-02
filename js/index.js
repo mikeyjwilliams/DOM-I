@@ -77,6 +77,15 @@ for (let i = 0; i < navigationArr.length; i++) {
 }
 
 /**
+ * navigation text to green.
+ */
+const navTextColorNl = document.querySelectorAll('a');
+const navTextColorArr = Array.from(navTextColorNl);
+navTextColorArr.forEach((nav, i) => {
+  navTextColorArr[i].style.color = 'green';
+});
+
+/**
  *  Logo gets element 'logo-img' by id.
  *  setsAttribute src to display img.
  *  sets alt text with alt attribute.
