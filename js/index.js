@@ -136,12 +136,26 @@ const ctaH1 = document.querySelector('.cta-text h1');
 const headerTextArr = siteContent["cta"]["h1"];
 let ctaText = Array.from(headerTextArr);
 
-
 const domIsAwesome = findSpacesArrayWord(ctaText);
 
-domIsAwesome.forEach((dia, i) => {
-  ctaH1.innerHTML += domIsAwesome[i] + '<br>';
-});
+/**
+ * 1. grab the header text place ^ ctaH1.
+ * 2. create span element.
+ * 3. insertAdjacentText 'afterbegin' array[0].
+ * 4. create br element.
+ * 5. append break Element to h1
+ * 6. insertAdjacentText 'afterend' array[1].
+ * 7. creat br and append to ctaH1.
+ * 8. insertAdjacentText 'afterend' array[2]
+ */
+ctaH1.insertAdjacentText('afterbegin', domIsAwesome[0]);
+const brElCta1 = document.createElement('br');
+ctaH1.append(brElCta1);
+//const spanElCta2 = document.createAttribute('span');
+brElCta1.insertAdjacentText('afterend', domIsAwesome[1]);
+const brElCta2 = document.createElement('br');
+ctaH1.append(brElCta2);
+brElCta2.insertAdjacentText('afterend', domIsAwesome[2]);
 
 /**
  * button text => 'siteContent[btn][button]'
@@ -239,12 +253,10 @@ const addressPlace = document.querySelectorAll('.contact p');
 const spanEl1 = document.createElement('span');
 spanEl1.insertAdjacentText('beforeend', address[0]);
 addressPlace[0].append(spanEl1);
-
 const br = document.createElement('br');
 spanEl1.append(br);
-
-const spanEl2 = document.createElement('span');
 br.insertAdjacentText('afterend', address[1]);
+
 /**
  * phone and email for contact
  */
