@@ -98,12 +98,10 @@ let ctaText = Array.from(headerTextArr);
 
 
 const domIsAwesome = findSpacesArrayWord(ctaText);
-const br = document.createElement('br');
-ctaH1.textContent = domIsAwesome[0];
-ctaH1.appendChild(br);
-ctaH1.textContent = domIsAwesome[1];
-ctaH1.appendChild(br);
-//ctaH1.te
+
+domIsAwesome.forEach((dia, i) => {
+  ctaH1.innerHTML += domIsAwesome[i] + '<br>';
+});
 
 /**
  * button text => 'siteContent[btn][button]'
