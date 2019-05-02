@@ -77,7 +77,17 @@ for (let i = 0; i < navigationArr.length; i++) {
 }
 
 /**
- * navigation text to green.
+ * 3. appendChild to nav bar.
+ */
+const contactNav = document.createElement('a');
+contactNav.textContent = 'Contact';
+const navBar = document.querySelector('nav');
+navBar.appendChild(contactNav);
+
+
+
+/**
+ * 2. navigation text to green.
  */
 const navTextColorNl = document.querySelectorAll('a');
 const navTextColorArr = Array.from(navTextColorNl);
