@@ -14,29 +14,260 @@ const siteContent = {
     "img-src": "img/header-img.png"
   },
   "main-content": {
-    "features-h4":"Features",
+    "features-h4": "Features",
     "features-content": "Features content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
-    "about-h4":"About",
+    "about-h4": "About",
     "about-content": "About content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
     "middle-img-src": "img/mid-page-accent.jpg",
-    "services-h4":"Services",
+    "services-h4": "Services",
     "services-content": "Services content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
-    "product-h4":"Product",
+    "product-h4": "Product",
     "product-content": "Product content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
-    "vision-h4":"Vision",
+    "vision-h4": "Vision",
     "vision-content": "Vision content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
   },
   "contact": {
-    "contact-h4" : "Contact",
-    "address" : "123 Way 456 Street Somewhere, USA",
-    "phone" : "1 (888) 888-8888",
-    "email" : "sales@greatidea.io",
+    "contact-h4": "Contact",
+    "address": "123 Way 456 Street Somewhere, USA",
+    "phone": "1 (888) 888-8888",
+    "email": "sales@greatidea.io",
   },
   "footer": {
-    "copyright" : "Copyright Great Idea! 2018"
+    "copyright": "Copyright Great Idea! 2018"
   },
 };
 
+/**
+ * function findSpacesArrayWord()
+ * finds spaces between words marks them in seen array.
+ * then splices them out to move on to the next one.
+ * since only thre words...slice from beginning to first space.join word
+ * slice to next seen[space] then join letters.
+ * slice till end and join letters.
+ * return array of words.
+ * @param array
+ * @return words
+ */
+const findSpacesArrayWord = function (array) {
+  const seen = [];
+  let words = [];
+  for (let i = 0; i < array.length; i++) {
+    if (array.includes(' ')) {
+      seen.push(array.indexOf(' '));
+      array.splice(seen[i], 1);
+    }
+  }
+  const firstWord = array.slice(0, seen[0]).join('');
+  const secondWord = array.slice(seen[0], seen[1]).join('');
+  const thirdWord = array.slice(seen[1]).join('');
+  words.push(firstWord, secondWord, thirdWord);
+
+  return words;
+}
+
+/**
+ *  Loop through the navigation items and display them.
+ *  nodeList => navigationNl grabs 'nav a'
+ *  navigationArr => array from nodeList iterates them.
+ */
+const navigationNl = document.querySelectorAll('nav a');
+const navigationArr = Array.from(navigationNl);
+for (let i = 0; i < navigationArr.length; i++) {
+  navigationArr[i].textContent = siteContent["nav"]["nav-item-" + i];
+}
+
+/**
+ * 3. a appendChild to nav bar.
+ */
+const contactNav = document.createElement('a');
+contactNav.textContent = 'Contact';
+const navAddContact = document.querySelector('nav');
+navAddContact.appendChild(contactNav);
+/**
+ * 3. b prepend to nav bar
+ */
+const homeNav = document.createElement('a');
+homeNav.textContent = 'Home';
+const navAddHome = document.querySelector('nav');
+navAddHome.prepend(homeNav);
+
+
+
+/**
+ * 2. navigation text to green.
+ */
+const navTextColorNl = document.querySelectorAll('a');
+const navTextColorArr = Array.from(navTextColorNl);
+navTextColorArr.forEach((nav, i) => {
+  navTextColorArr[i].style.color = 'green';
+});
+
+/**
+ *  STRETCH alter nav font size.
+ */
+const navBarStyles = document.querySelector('nav');
+navBarStyles.style.width = '80%';
+const logoMarginStyle = document.querySelector('.logo');
+logoMarginStyle.style.margin = '10px 0 0 15px';
+
+const navStyles = document.querySelectorAll('a');
+navStyles.forEach((nav, i) => {
+  navStyles[i].style.fontSize = '1.6rem';
+  navStyles[i].style.justifyContent = 'space-between';
+});
+
+/**
+ *  Logo gets element 'logo-img' by id.
+ *  setsAttribute src to display img.
+ *  sets alt text with alt attribute.
+ */
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+logo.setAttribute('src', siteContent["nav"]["img-src"]);
+
+/** 
+ * Cta h1 text => 'DOM IS AWESOME'
+ * grab h1 in CTA.
+ * create Text.
+ * create <br>;
+ * insert into cta->h1. 
+ */
+const ctaH1 = document.querySelector('.cta-text h1');
+const headerTextArr = siteContent["cta"]["h1"];
+let ctaText = Array.from(headerTextArr);
+
+const domIsAwesome = findSpacesArrayWord(ctaText);
+
+/**
+ * 1. grab the header text place ^ ctaH1.
+ * 2. create span element.
+ * 3. insertAdjacentText 'afterbegin' array[0].
+ * 4. create br element.
+ * 5. append break Element to h1
+ * 6. insertAdjacentText 'afterend' array[1].
+ * 7. creat br and append to ctaH1.
+ * 8. insertAdjacentText 'afterend' array[2]
+ */
+ctaH1.insertAdjacentText('afterbegin', domIsAwesome[0]);
+const brElCta1 = document.createElement('br');
+ctaH1.append(brElCta1);
+//const spanElCta2 = document.createAttribute('span');
+brElCta1.insertAdjacentText('afterend', domIsAwesome[1]);
+const brElCta2 = document.createElement('br');
+ctaH1.append(brElCta2);
+brElCta2.insertAdjacentText('afterend', domIsAwesome[2]);
+
+/**
+ * button text => 'siteContent[btn][button]'
+ * document object through => '.cta-text button'
+ * pass the text content in.
+ */
+const ctaButton = document.querySelector('.cta-text button');
+ctaButton.textContent = siteContent["cta"]["button"];
+
+
+
+
+/**
+ * img of a code snippet.
+ * #cta-img => ctaImg selects document.
+ * set attribute img siteContent object.
+ */
+const ctaImg = document.querySelector('#cta-img');
+ctaImg.setAttribute('src', siteContent["cta"]["img-src"]);
+
+/**
+ * h4's for .main-content
+ * h4 for feature and about sections &
+ * h4 for services, product, and vision. 
+ */
+const mainH4 = document.querySelectorAll('.text-content h4');
+
+mainH4[0].textContent = siteContent["main-content"]["features-h4"];
+mainH4[1].textContent = siteContent["main-content"]["about-h4"];
+mainH4[2].textContent = siteContent["main-content"]["product-h4"];
+mainH4[3].textContent = siteContent["main-content"]["services-h4"];
+mainH4[4].textContent = siteContent["main-content"]["vision-h4"];
+
+/**
+ * add content too p's in '.text-content p's
+ * for features, about, product, services, & vision.
+ */
+const mainPars = document.querySelectorAll('.text-content p');
+mainPars[0].textContent = siteContent["main-content"]["features-content"];
+mainPars[1].textContent = siteContent["main-content"]["about-content"];
+mainPars[2].textContent = siteContent["main-content"]["product-content"];
+mainPars[3].textContent = siteContent["main-content"]["services-content"];
+mainPars[4].textContent = siteContent["main-content"]["vision-content"];
+
+/**
+ * image between top and bottom content.
+ * attribute src name.
+ * grab by id='middle-img'
+ */
+const middleImg = document.querySelector('#middle-img');
+middleImg.src = siteContent["main-content"]["middle-img-src"];
+
+/**
+ * Contact info
+ * split between
+ * contactHeader and contactInfo.
+ * grab by .contact h4 and .contact p
+ */
+
+const contactHeader = document.querySelector('.contact h4');
+contactHeader.textContent = siteContent["contact"]["contact-h4"];
+
+const contactInfo = document.querySelectorAll('.contact p');
+const contactAddress = siteContent["contact"]["address"];
+/**
+ * function addressBreak
+ * break address into array of words.
+ * @param {*} streetBreak 
+ */
+function addressBreak(streetBreak) {
+  let firstHalf;
+  let secondHalf;
+  let words = [];
+  if (streetBreak.includes('Somewhere')) {
+    const i = streetBreak.indexOf('Somewhere');
+    firstHalf = streetBreak.slice(0, i);
+    secondHalf = streetBreak.slice(i);
+    words.push(firstHalf);
+    words.push(secondHalf);
+  }
+  return words;
+}
+/**
+ * function to break [street address] up into chunks.
+ * 1. select placing.
+ * 2. create span element 
+ * 3. insert 'beforend' text.
+ * 4. append to the array[0] place the span with text.
+ * 5. create break and append it below textNode.
+ * 6. span attach to break and insertText 'afterend' address[1].
+ */
+const address = addressBreak(contactAddress);
+
+const addressPlace = document.querySelectorAll('.contact p');
+const spanEl1 = document.createElement('span');
+spanEl1.insertAdjacentText('beforeend', address[0]);
+addressPlace[0].append(spanEl1);
+const br = document.createElement('br');
+spanEl1.append(br);
+br.insertAdjacentText('afterend', address[1]);
+
+/**
+ * phone and email for contact
+ */
+contactInfo[1].textContent = siteContent["contact"]["phone"];
+contactInfo[2].textContent = siteContent["contact"]["email"];
+
+/**
+ * footer info
+ * footerInfo => footer p
+ * displays data
+ */
+
+const footerInfo = document.querySelector('footer p');
+footerInfo.textContent = siteContent["footer"]["copyright"];
